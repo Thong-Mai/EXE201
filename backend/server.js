@@ -66,6 +66,9 @@ const sendOTPEmail = async (toEmail, otp, type = 'register') => {
     <p style="text-align:center;color:#cbd5e1;font-size:11px;margin-top:20px">© 2026 SAVE+ · Nếu bạn không yêu cầu điều này, hãy bỏ qua email này.</p>
   </div>`;
 
+  await transporter.verify();
+  console.log("SMTP VERIFIED");
+  
   await transporter.sendMail({
     from: `"SAVE+ Platform" <${process.env.GMAIL_USER}>`,
     to: toEmail,
