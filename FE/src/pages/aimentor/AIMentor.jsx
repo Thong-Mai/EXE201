@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { Sparkles, Send, Bot, User, Compass, HelpCircle } from 'lucide-react';
 
-const BASE_URL = window.location.origin.includes('localhost') ? 'http://localhost:5000/api' : '/api';
+const BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 export default function AIMentor() {
   const { user, balance, riskProfile, xp, streak, goals } = useAuth();

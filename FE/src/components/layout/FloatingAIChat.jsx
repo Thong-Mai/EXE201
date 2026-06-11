@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { MessageSquare, X, Send, Bot, User, HelpCircle, Loader2 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
-const BASE_URL = window.location.origin.includes('localhost') ? 'http://localhost:5000/api' : '/api';
-
+const BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  
 export default function FloatingAIChat() {
   const { user, balance, riskProfile, xp, streak, goals } = useAuth();
   const location = useLocation();
